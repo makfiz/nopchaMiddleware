@@ -26,7 +26,7 @@ app.all('*', async (req, res) => {
                 ...req.headers,
                 host: 'api.nopcha.com', // Убедитесь, что заголовок host корректен
                 'User-Agent': `Node.js/${process.version} (${process.platform} ${process.arch})`,
-                Referer: 'https://yourwebsite.com/'
+                Referer: 'https://nopchamiddleware.onrender.com'
             },
             data: req.body,
             httpsAgent: agent, // Используем кастомный агент
