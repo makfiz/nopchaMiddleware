@@ -23,10 +23,10 @@ app.all('*', async (req, res) => {
         const options = {
             method: req.method,
             url: targetUrl,
-            headers: {
-                ...req.headers,
-                host: 'api.nopcha.com', // Убедитесь, что заголовок host корректен
-            },
+            // headers: {
+            //     ...req.headers,
+            //     host: 'api.nopcha.com', // Убедитесь, что заголовок host корректен
+            // },
             data: req.body,
             // httpsAgent: agent, // Используем кастомный агент
         };
