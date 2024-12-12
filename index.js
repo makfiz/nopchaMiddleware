@@ -33,7 +33,7 @@ app.all('*', async (req, res) => {
 
         // Отправляем запрос через Axios
         const response = await axios(options);
-// console.log(response)
+console.log(response.data)
         // Отправляем ответ клиенту
         res.status(response.status).send(response.data);
     } catch (error) {
