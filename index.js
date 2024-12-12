@@ -25,11 +25,9 @@ app.all('*', async (req, res) => {
             headers: {
                 ...req.headers,
                 host: 'api.nopcha.com', // Убедитесь, что заголовок host корректен
-                'User-Agent': `Node.js/${process.version} (${process.platform} ${process.arch})`,
-                Referer: 'https://nopchamiddleware.onrender.com'
             },
             data: req.body,
-            httpsAgent: agent, // Используем кастомный агент
+            // httpsAgent: agent, // Используем кастомный агент
         };
 
         // Отправляем запрос через Axios
