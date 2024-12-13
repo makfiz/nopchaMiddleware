@@ -93,3 +93,30 @@ app.use((req, res) => {
 app.listen(PORT, () => {
     console.log(`Middleware сервер запущен на ${PORT}`);
 });
+
+getStatus1()
+async function getStatus1() {
+    const targetUrl = `https://api.nopcha.com/status?key=I-PG88N6RRYKUY`; // Target API URL
+
+    
+        const options = {
+            method: "GET",
+        };
+    
+        // Send the request using fetch
+        const response = await fetch(targetUrl, options);
+    
+        // Check if the response is successful
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            
+        }
+    
+        const data = await response.json();
+        console.log(data);
+    
+        // Return the response to the client
+        // return res.status(200).json(data);
+    // Отправляем ответ клиенту
+  
+}

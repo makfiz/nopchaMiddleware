@@ -1,4 +1,4 @@
-const axios = require('axios');
+// const axios = require('axios');
 async function getStatus(req, res, next) {
     const targetUrl = `https://api.nopcha.com/status?key=I-PG88N6RRYKUY`; // Target API URL
 
