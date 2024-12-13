@@ -105,15 +105,15 @@ async function getStatus1() {
     
         // Send the request using fetch
         const response = await fetch(targetUrl, options);
-    
+        console.log(response);
         // Check if the response is successful
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+    //    if (!response.ok) {
+    //         throw new Error(`HTTP error! Status: ${response.status}`);
             
-        }
+    //     }
     
-        const data = await response.json();
-        console.log(data);
+    //     con st data = await response.json();
+    //     console.log(data);
     
         // Return the response to the client
         // return res.status(200).json(data);
