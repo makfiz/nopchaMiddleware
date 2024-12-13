@@ -27,7 +27,7 @@ app.all('*', async (req, res) => {
             //     ...req.headers,
             //     host: 'api.nopcha.com', // Убедитесь, что заголовок host корректен
             // },
-            data: req.body,
+            // data: req.body,
             // httpsAgent: agent, // Используем кастомный агент
         };
 
@@ -35,7 +35,7 @@ app.all('*', async (req, res) => {
         const response = await axios(options);
 console.log(response.data)
         // Отправляем ответ клиенту
-        res.status(response.status).send(response.data);
+        res.status(200).json({msg:"done"})
     } catch (error) {
         // Обработка ошибок
         if (error.response) {
