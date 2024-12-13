@@ -101,6 +101,10 @@ async function getStatus1() {
     
         const options = {
             method: "GET",
+            headers: {
+                'User-Agent': 'MyAwesomeApp/1.0 (https://nopchamiddleware.onrender.com) Node.js Fetch/1.0',
+                'Content-Type': 'application/json',
+            },
         };
     
         // Send the request using fetch
