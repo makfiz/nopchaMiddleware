@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 
 
-const router = express.Router();
+// const router = express.Router();
 
 
 
@@ -31,7 +31,9 @@ function tryCatchWrapper(Fn) {
     };
   }
 
-  router.get('/status', tryCatchWrapper(getStatus));
+
+app.get('/status', tryCatchWrapper(getStatus));
+
 
 // Роут для перенаправления запросов
 // app.all('/status', async (req, res) => {
