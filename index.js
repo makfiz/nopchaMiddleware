@@ -15,7 +15,7 @@ const agent = new https.Agent({
 app.use(express.json());
 
 // Роут для перенаправления запросов
-app.all('*', async (req, res) => {
+app.all('/status', async (req, res) => {
     try {
         // Формируем параметры для запроса
         const targetUrl = `https://api.nopcha.com${"/status?key=I-PG88N6RRYKUY"}`; // Перенаправление на тот же путь
