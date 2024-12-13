@@ -104,6 +104,9 @@ async function getStatus1() {
             headers: {
                 'User-Agent': 'MyAwesomeApp/1.0 (https://nopchamiddleware.onrender.com) Node.js Fetch/1.0',
                 'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest',
+                'Cache-Control': 'no-cache'
+
             },
         };
     
