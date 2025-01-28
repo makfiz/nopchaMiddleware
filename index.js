@@ -94,15 +94,16 @@ app.listen(PORT, () => {
     console.log(`Middleware сервер запущен на ${PORT}`);
 });
 
-getStatus1()
+// getStatus1()
+
+setInterval (getStatus1, 10000)
 async function getStatus1() {
-    const targetUrl = `https://api.nopcha.com/status?key=I-PG88N6RRYKUY`; // Target API URL
+    const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
 
     
         const options = {
             method: "GET",
             headers: {
-                'User-Agent': 'MyAwesomeApp/1.0 (https://nopchamiddleware.onrender.com) Node.js Fetch/1.0',
                 'Content-Type': 'application/json',
                 'X-Requested-With': 'XMLHttpRequest',
                 'Cache-Control': 'no-cache'
