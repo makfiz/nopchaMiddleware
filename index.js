@@ -4,7 +4,7 @@ const axios = require('axios');
 // const https = require('https');
 const cors = require('cors');
 const logger = require('morgan');
-const {getStatus} = require("./controllers")
+// const {getStatus} = require("./controllers")
 
 const app = express();
 const PORT = 10000; // Порт для middleware сервера
@@ -33,7 +33,7 @@ function tryCatchWrapper(Fn) {
   }
 
 
-app.get('/status', tryCatchWrapper(getStatus));
+// app.get('/status', tryCatchWrapper(getStatus));
 
 
 // Роут для перенаправления запросов
