@@ -114,32 +114,32 @@ app.listen(PORT, () => {
 
 // getStatus1()
 
-// setInterval(async ()=>{
-//   try {
-//     await getStatus1()
-// } catch (error) {
-//     console.error({
-//         message: error.message,
-//         status: error.response?.status,
-//         headers: error.response?.headers,
-//         data: error.response?.data,
-//     }); // Логируем подробности ошибки
-// }
+setInterval(async ()=>{
+  try {
+    await getStatus1()
+} catch (error) {
+    console.error({
+        message: error.message,
+        status: error.response?.status,
+        headers: error.response?.headers,
+        data: error.response?.data,
+    }); // Логируем подробности ошибки
+}
 
-// }, 10000)
-// async function getStatus1() {
-//     const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
+}, 10000)
+async function getStatus1() {
+    const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
 
     
-//     try {
-//       const response = await axios.get(targetUrl);
-//       console.log(response.data);
-//   } catch (error) {
-//       console.error({
-//           message: error.message,
-//           status: error.response?.status,
-//           headers: error.response?.headers,
-//           data: error.response?.data,
-//       }); // Логируем подробности ошибки
-//   }
-// }
+    try {
+      const response = await axios.get(targetUrl);
+      console.log(response.data);
+  } catch (error) {
+      console.error({
+          message: error.message,
+          status: error.response?.status,
+          headers: error.response?.headers,
+          data: error.response?.data,
+      }); // Логируем подробности ошибки
+  }
+}
