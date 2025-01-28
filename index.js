@@ -96,7 +96,7 @@ app.listen(PORT, () => {
 
 // getStatus1()
 
-setInterval (getStatus1, 10000)
+setInterval(async ()=>{await getStatus1()}, 10000)
 async function getStatus1() {
     const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
 
