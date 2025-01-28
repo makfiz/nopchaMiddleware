@@ -34,7 +34,21 @@ function tryCatchWrapper(Fn) {
 
 
 // app.get('/status', tryCatchWrapper(getStatus));
+app.get("/proxy", async (req, res) => {
+  try {
+      const apiUrl = "https://api.nopcha.com/status?v=0.4.8&key=I-BC8FC98NSD05";
+      const response = await axios.get(apiUrl, {
+          headers: {
+              "User-Agent": req.headers["user-agent"], // Имитация заголовка клиента
+              "Accept": "*/*",
+          },
+      });
 
+      res.json(response.data);
+  } catch (error) {
+      res.status(error.response?.status || 500).json({ error: "Ошибка запроса" });
+  }
+});
 
 // Роут для перенаправления запросов
 // app.all('/status', async (req, res) => {
@@ -97,32 +111,32 @@ app.listen(PORT, () => {
 
 // getStatus1()
 
-setInterval(async ()=>{
-  try {
-    await getStatus1()
-} catch (error) {
-    console.error({
-        message: error.message,
-        status: error.response?.status,
-        headers: error.response?.headers,
-        data: error.response?.data,
-    }); // Логируем подробности ошибки
-}
+// setInterval(async ()=>{
+//   try {
+//     await getStatus1()
+// } catch (error) {
+//     console.error({
+//         message: error.message,
+//         status: error.response?.status,
+//         headers: error.response?.headers,
+//         data: error.response?.data,
+//     }); // Логируем подробности ошибки
+// }
 
-}, 10000)
-async function getStatus1() {
-    const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
+// }, 10000)
+// async function getStatus1() {
+//     const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
 
     
-    try {
-      const response = await axios.get(targetUrl);
-      console.log(response.data);
-  } catch (error) {
-      console.error({
-          message: error.message,
-          status: error.response?.status,
-          headers: error.response?.headers,
-          data: error.response?.data,
-      }); // Логируем подробности ошибки
-  }
-}
+//     try {
+//       const response = await axios.get(targetUrl);
+//       console.log(response.data);
+//   } catch (error) {
+//       console.error({
+//           message: error.message,
+//           status: error.response?.status,
+//           headers: error.response?.headers,
+//           data: error.response?.data,
+//       }); // Логируем подробности ошибки
+//   }
+// }
