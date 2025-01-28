@@ -1,5 +1,6 @@
 // Импортируем необходимые модули
 const express = require('express');
+const axios = require('axios');
 // const https = require('https');
 const cors = require('cors');
 const logger = require('morgan');
@@ -96,35 +97,32 @@ app.listen(PORT, () => {
 
 // getStatus1()
 
-setInterval(async ()=>{await getStatus1()}, 10000)
+setInterval(async ()=>{
+  try {
+    await getStatus1()
+} catch (error) {
+    console.error({
+        message: error.message,
+        status: error.response?.status,
+        headers: error.response?.headers,
+        data: error.response?.data,
+    }); // Логируем подробности ошибки
+}
+
+}, 10000)
 async function getStatus1() {
     const targetUrl = `https://api.nopcha.com/status?key=I-BC8FC98NSD05`; // Target API URL
 
     
-        const options = {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest',
-                'Cache-Control': 'no-cache'
-
-            },
-        };
-    
-        // Send the request using fetch
-        const response = await fetch(targetUrl, options);
-        console.log(response);
-        // Check if the response is successful
-    //    if (!response.ok) {
-    //         throw new Error(`HTTP error! Status: ${response.status}`);
-            
-    //     }
-    
-    //     con st data = await response.json();
-    //     console.log(data);
-    
-        // Return the response to the client
-        // return res.status(200).json(data);
-    // Отправляем ответ клиенту
-  
+    try {
+      const response = await axios.get(targetUrl);
+      console.log(response.data);
+  } catch (error) {
+      console.error({
+          message: error.message,
+          status: error.response?.status,
+          headers: error.response?.headers,
+          data: error.response?.data,
+      }); // Логируем подробности ошибки
+  }
 }
