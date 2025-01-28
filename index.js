@@ -36,7 +36,10 @@ function tryCatchWrapper(Fn) {
 // app.get('/status', tryCatchWrapper(getStatus));
 app.get("/proxy", async (req, res) => {
   try {
-      const apiUrl = "https://api.nopcha.com/status?v=0.4.8&key=I-BC8FC98NSD05";
+    const queryParams = new URLSearchParams(req.query).toString();
+        
+    // Формируем URL для API Nopcha с переданными параметрами
+    const apiUrl = `https://api.nopcha.com/status?${queryParams}`;
       const response = await axios.get(apiUrl, {
           headers: {
               "User-Agent": req.headers["user-agent"], // Имитация заголовка клиента
