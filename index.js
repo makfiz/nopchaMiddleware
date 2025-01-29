@@ -33,25 +33,25 @@ function tryCatchWrapper(Fn) {
   }
 
 
-// app.get('/status', tryCatchWrapper(getStatus));
-app.get("/proxy", async (req, res) => {
-  try {
-    const queryParams = new URLSearchParams(req.query).toString();
+app.get('/status', tryCatchWrapper(getStatus));
+// app.get("/proxy", async (req, res) => {
+//   try {
+//     const queryParams = new URLSearchParams(req.query).toString();
         
-    // Формируем URL для API Nopcha с переданными параметрами
-    const apiUrl = `https://api.nopcha.com/status?${queryParams}`;
-      const response = await axios.get(apiUrl, {
-          headers: {
-              "User-Agent": req.headers["user-agent"], // Имитация заголовка клиента
-              "Accept": "*/*",
-          },
-      });
+//     // Формируем URL для API Nopcha с переданными параметрами
+//     const apiUrl = `https://api.nopcha.com/status?${queryParams}`;
+//       const response = await axios.get(apiUrl, {
+//           headers: {
+//               "User-Agent": req.headers["user-agent"], // Имитация заголовка клиента
+//               "Accept": "*/*",
+//           },
+//       });
 
-      res.json(response.data);
-  } catch (error) {
-      res.status(error.response?.status || 500).json({ error: "Ошибка запроса" });
-  }
-});
+//       res.json(response.data);
+//   } catch (error) {
+//       res.status(error.response?.status || 500).json({ error: "Ошибка запроса" });
+//   }
+// });
 
 // Роут для перенаправления запросов
 // app.all('/status', async (req, res) => {
