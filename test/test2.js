@@ -36,6 +36,7 @@ async function get(req, res, next) {
   console.log('Target targetUrl:', targetUrl.toString());
 
   const headers = {
+    ':method': 'GET',
     ':scheme': 'https',
     ':authority': targetUrl.hostname,
     ':path': targetUrl.pathname + targetUrl.search,
@@ -66,17 +67,22 @@ async function post(req, res, next) {
   console.log('Target targetUrl:', targetUrl.toString());
 
   const headers = {
+    ':method': 'POST',
     ':scheme': 'https',
     ':authority': targetUrl.hostname,
     ':path': targetUrl.pathname + targetUrl.search,
     'user-agent': 'curl/8.9.1',
-    accept: 'application/json',
+    accept: '*/*',
     'content-type': 'application/json',
   };
   const agent = new HttpsProxyAgent(PROXY_URL);
+  let postData = null;
+  if (req.body) {
+    postData = JSON.stringify(req.body);
+  }
+
   axios({
-    method: 'post',
-    data: req.body,
+    data: postData,
     url: targetUrl,
     httpAgent: agent,
     httpsAgent: agent,
@@ -92,12 +98,22 @@ async function post(req, res, next) {
     });
 }
 
+// app.get('*', async (req, res) => {
+
+// });
+
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });
 });
 
 app.use((err, req, res, next) => {
   console.log(err.message);
+  // if (err.message.includes('Cast to ObjectId failed for value')) {
+  //   return res.status(404).json({
+  //     message: 'Not found',
+  //   });
+  // }
+
   return res
     .status(err.status || 500)
     .json({ message: err.message || 'Internal server errordsfsd' });
