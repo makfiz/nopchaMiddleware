@@ -21,9 +21,9 @@ async function getStatus() {
 
   // const HttpsProxyAgent = require('https-proxy-agent');
 
-  // Прокси-сервер
+  // Прокси-сервер 58066
   const PROXY_URL =
-    'http://606d9efb2ca0cbe41f10__cr.ua;state.kyivcity;city.kyiv;zip.03027;asn.200525:93a95ba47dc53f4b@gw.dataimpulse.com:823'; // Укажи свой прокси
+    'http://606d9efb2ca0cbe41f10__cr.ua;state.kyivcity;city.kyiv;asn.28907:93a95ba47dc53f4b@gw.dataimpulse.com:823'; // Укажи свой прокси
 
   // Создаем агент с прокси
   const agent = new HttpsProxyAgent(PROXY_URL);
