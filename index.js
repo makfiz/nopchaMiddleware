@@ -8,7 +8,7 @@ const { HttpsProxyAgent } = require('https-proxy-agent');
 const app = express();
 const PORT = 3000;
 const PROXY_URL =
-  'http://606d9efb2ca0cbe41f10__cr.ua;state.kyivcity;city.kyiv;asn.200525,58066,15497,15626,42331,28907:93a95ba47dc53f4b@gw.dataimpulse.com:823'; // Укажи здесь свой прокси
+  'http://606d9efb2ca0cbe41f10__cr.ua;state.kyivcity;city.kyiv;asn.58066,15497,15626,42331,28907:93a95ba47dc53f4b@gw.dataimpulse.com:823'; // Укажи здесь свой прокси
 
 app.use(logger('dev'));
 app.use(cors());
