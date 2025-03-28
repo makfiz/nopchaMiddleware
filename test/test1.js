@@ -23,7 +23,7 @@ async function getStatus() {
 
   // Прокси-сервер 58066
   const PROXY_URL =
-    'http://606d9efb2ca0cbe41f10__cr.ua;state.kyivcity;city.kyiv;asn.196645:93a95ba47dc53f4b@gw.dataimpulse.com:823'; // Укажи свой прокси
+    'http://2411013CCux-dc-IL:1NsVxuhVELk9aj0@eu.proxy-jet.io:1010'; // Укажи свой прокси
 
   // Создаем агент с прокси
   const agent = new HttpsProxyAgent(PROXY_URL);
