@@ -8,7 +8,7 @@ const { HttpsProxyAgent } = require('https-proxy-agent');
 const app = express();
 const PORT = 3000;
 const PROXY_URL =
-  'http://2411013CCux-dc-IT:1NsVxuhVELk9aj0@eu.proxy-jet.io:1010'; // Укажи здесь свой прокси
+  'http://2411013CCux-dc-CA-ip-3254389:1NsVxuhVELk9aj0@ca.proxy-jet.io:1010'; // Укажи здесь свой прокси
 
 app.use(logger('dev'));
 app.use(cors());
