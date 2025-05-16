@@ -25,7 +25,7 @@ async function getStatus() {
   // eu.proxy-jet.io:1010:2411013CCux-dc-ES:1NsVxuhVELk9aj0
 
   const PROXY_URL =
-    'http://2411013CCux-dc-CA-ip-3254389:1NsVxuhVELk9aj0@ca.proxy-jet.io:1010'; // Укажи свой прокси
+    'http://2411013CCux-dc-IT:1NsVxuhVELk9aj0@eu.proxy-jet.io:1010'; // Укажи свой прокси
 
   // Создаем агент с прокси
   const agent = new HttpsProxyAgent(PROXY_URL);
