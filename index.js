@@ -3,12 +3,14 @@ const express = require('express');
 const logger = require('morgan');
 const cors = require('cors');
 const axios = require('axios');
+const cron = require('node-cron');
 const { HttpsProxyAgent } = require('https-proxy-agent');
 
 const app = express();
 const PORT = 3000;
 const PROXY_URL =
   'http://2411013CCux-dc-IT:1NsVxuhVELk9aj0@eu.proxy-jet.io:1010'; // Укажи здесь свой прокси
+const unSleepUrl = 'https://bt-statistics-nextjs-ph97.onrender.com/test';
 
 app.use(logger('dev'));
 app.use(cors());
@@ -101,6 +103,27 @@ app.use((err, req, res, next) => {
   return res
     .status(err.status || 500)
     .json({ message: err.message || 'Internal server errordsfsd' });
+});
+
+cron.schedule('*/9 8-20 * * 1-5', async () => {
+  try {
+    const response = await axios.get(unSleepUrl);
+    console.log(
+      `[${new Date().toLocaleTimeString()}] Ping successful: ${response.status}`
+    );
+  } catch (error) {
+    if (error.response) {
+      console.error(
+        `[${new Date().toLocaleTimeString()}] Ping failed: ${
+          error.response.status
+        }`
+      );
+    } else {
+      console.error(
+        `[${new Date().toLocaleTimeString()}] Ping error: ${error.message}`
+      );
+    }
+  }
 });
 
 app.listen(PORT, () => {
